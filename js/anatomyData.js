@@ -94,7 +94,7 @@ export const MUSCLES = [
     nerve: '副神経（第XI脳神経）、頸神経叢の枝（C3–C4）',
     action: '肩甲骨の挙上・内転・下制、上方回旋（肩関節外転の補助）',
     memo: '肩こりの主因筋。上部線維の過緊張は頭板状筋・肩甲挙筋と連動。施術では起始(後頭〜項)と停止(肩峰)の張力差を確認。',
-    build: { type:'sheet', pts:['occiput','c7','t12','acromionL'], bulge:[0,0,-2.2] },
+    build: { kind:'fan', o:['occiput','c7','t3','t12'], i:['clavMidL','acromionL','scapSpineL'], n:24, w:1.0, bulge:[0,0,-1.6] },
   },
   {
     id: 'latissimus', name: '広背筋', latin: 'M. latissimus dorsi',
@@ -104,7 +104,7 @@ export const MUSCLES = [
     nerve: '胸背神経（C6–C8）',
     action: '肩関節の伸展・内転・内旋（体幹引き上げ）',
     memo: '体幹と上肢をつなぐ最大の背筋。胸腰筋膜を介し殿部・腰部と連鎖。猫背・巻き肩の評価で重要。',
-    build: { type:'sheet', pts:['t7','l5','iliacCrestL','scapInfL','humHeadL'], bulge:[0,0,-2.0] },
+    build: { kind:'fan', o:['t7','t12','l3','l5','iliacCrestL'], i:['humHeadL'], n:26, w:0.92, bulge:[0,0,-1.4] },
   },
   {
     id: 'erector', name: '脊柱起立筋', latin: 'Mm. erector spinae',
@@ -114,7 +114,7 @@ export const MUSCLES = [
     nerve: '脊髄神経後枝',
     action: '脊柱の伸展、一側で側屈・回旋、姿勢保持',
     memo: '腸肋筋・最長筋・棘筋の総称。腰痛で最も触診される。左右差・過緊張を棘突起外側で確認。',
-    build: { type:'spindle', pts:['sacrum',[-4,135,-6.5]], r:3.2, bulge:[0,0,0] },
+    build: { kind:'fusiform', o:[[-4.5,91,-6]], i:[[-4.5,137,-6.5]], n:8, w:2.3, flat:[1.5,0.9], bulge:[0,0,0.3] },
   },
   {
     id: 'splenius', name: '頭板状筋', latin: 'M. splenius capitis',
@@ -124,7 +124,7 @@ export const MUSCLES = [
     nerve: '脊髄神経後枝（C2–C4の外側枝）',
     action: '頭頸部の伸展、同側への回旋・側屈',
     memo: '画像例の筋。起始は C7椎骨付近の棘突起。寝違え・頸部痛で胸鎖乳突筋と対で評価する。',
-    build: { type:'spindle', pts:['t3','mastoidL'], r:1.7, bulge:[0,0,-1] },
+    build: { kind:'fusiform', o:['t3'], i:['mastoidL'], n:5, w:1.5, flat:[1.3,0.8], bulge:[0,0,-0.8] },
   },
   {
     id: 'levator', name: '肩甲挙筋', latin: 'M. levator scapulae',
@@ -134,7 +134,7 @@ export const MUSCLES = [
     nerve: '肩甲背神経（C4–C5）、頸神経（C3–C4）',
     action: '肩甲骨の挙上・下方回旋、頸部の同側側屈',
     memo: '「首の付け根のこり」の代表筋。肩甲骨上角の停止部に圧痛が出やすい。',
-    build: { type:'spindle', pts:['c1','scapUpperL'], r:1.2, bulge:[-0.5,0,-0.8] },
+    build: { kind:'fusiform', o:['c1'], i:['scapUpperL'], n:4, w:1.0, bulge:[-0.5,0,-0.8] },
   },
   {
     id: 'scm', name: '胸鎖乳突筋', latin: 'M. sternocleidomastoideus',
@@ -144,7 +144,7 @@ export const MUSCLES = [
     nerve: '副神経（第XI脳神経）、頸神経叢（C2–C3）',
     action: '一側で頭部の対側回旋・同側側屈、両側で頸部屈曲',
     memo: 'むち打ち・頭位異常で硬くなる。前頸部の触知しやすい筋。施術は神経・血管に注意し愛護的に。',
-    build: { type:'spindle', pts:['clavInL','mastoidL'], r:1.3, bulge:[0,0,1.5] },
+    build: { kind:'fusiform', o:['clavInL'], i:['mastoidL'], n:6, w:1.2, flat:[1,1.1], bulge:[0,0,1.3] },
   },
   {
     id: 'rhomboid', name: '菱形筋', latin: 'Mm. rhomboidei',
@@ -154,7 +154,7 @@ export const MUSCLES = [
     nerve: '肩甲背神経（C4–C5）',
     action: '肩甲骨の内転・挙上・下方回旋',
     memo: '巻き肩で引き伸ばされ弱化しやすい。僧帽筋中部の深層。肩甲骨内側縁の痛みで着目。',
-    build: { type:'sheet', pts:['c7','t3','scapMedL','scapUpperL'], bulge:[0,0,-1.2] },
+    build: { kind:'fan', o:['c7','t3'], i:['scapUpperL','scapMedL','scapInfL'], n:12, w:0.6, bulge:[0,0,-0.9] },
   },
   {
     id: 'deltoid', name: '三角筋', latin: 'M. deltoideus',
@@ -164,7 +164,7 @@ export const MUSCLES = [
     nerve: '腋窩神経（C5–C6）',
     action: '肩関節外転（前部：屈曲・内旋／後部：伸展・外旋）',
     memo: '前部・中部・後部で作用が異なる。四十肩で可動域評価の起点。',
-    build: { type:'sheet', pts:['clavMidL','acromionL','scapSpineL','deltTubL'], bulge:[-1.8,0,0] },
+    build: { kind:'fan', o:['clavMidL','acromionL','scapSpineL'], i:['deltTubL'], n:20, w:0.82, bulge:[-1.7,-0.3,0.2] },
   },
   {
     id: 'pecmajor', name: '大胸筋', latin: 'M. pectoralis major',
@@ -174,7 +174,7 @@ export const MUSCLES = [
     nerve: '内側・外側胸筋神経（C5–T1）',
     action: '肩関節の内転・内旋・屈曲（水平内転）',
     memo: '短縮すると巻き肩を助長。背部筋とのバランスで姿勢を評価。',
-    build: { type:'sheet', pts:['clavInL','sternumMid','rib6L','humHeadL'], bulge:[0,0,2.2] },
+    build: { kind:'fan', o:['clavInL','manubrium','sternumMid','rib6L'], i:['humHeadL'], n:22, w:0.82, bulge:[0,0,2.0] },
   },
   {
     id: 'rectusabd', name: '腹直筋', latin: 'M. rectus abdominis',
@@ -184,7 +184,7 @@ export const MUSCLES = [
     nerve: '肋間神経（T5–T12）',
     action: '体幹（腰椎）の屈曲、腹圧上昇、骨盤後傾',
     memo: '腱画により分節する。腰椎前弯・反り腰の評価で腸腰筋と対比。',
-    build: { type:'spindle', pts:['pubis',[-3,120,8]], r:2.0, bulge:[0,0,1.5] },
+    build: { kind:'fusiform', o:[[-3,90.5,5.5]], i:[[-3,119,8]], n:5, w:1.7, flat:[1.5,0.55], bulge:[0,0,0.8] },
   },
   {
     id: 'obliqueext', name: '外腹斜筋', latin: 'M. obliquus externus abdominis',
@@ -194,7 +194,7 @@ export const MUSCLES = [
     nerve: '肋間神経（T7–T12）、腸骨下腹神経・腸骨鼠径神経',
     action: '体幹の屈曲、同側側屈、対側回旋',
     memo: '回旋系の動作評価で重要。骨盤の安定に寄与。',
-    build: { type:'sheet', pts:['rib6L','rib10L','asisL','pubis'], bulge:[0,0,1.6] },
+    build: { kind:'fan', o:['rib6L','rib10L'], i:['asisL','pubis'], n:14, w:0.62, bulge:[0,0,1.4] },
   },
   {
     id: 'glutmax', name: '大殿筋', latin: 'M. gluteus maximus',
@@ -204,7 +204,7 @@ export const MUSCLES = [
     nerve: '下殿神経（L5–S2）',
     action: '股関節の伸展・外旋（上部線維は外転）',
     memo: '人体最大の筋。弱化で腰部代償が起こりやすい。歩行・立ち上がりの推進力。',
-    build: { type:'sheet', pts:['iliacPostL','sacrum','ischiumL','glutTubL'], bulge:[0,0,-2.5] },
+    build: { kind:'fan', o:['iliacPostL','sacrum','coccyx'], i:['glutTubL','itKneeL'], n:22, w:1.15, bulge:[0,0,-2.3] },
   },
   {
     id: 'glutmed', name: '中殿筋', latin: 'M. gluteus medius',
@@ -214,7 +214,7 @@ export const MUSCLES = [
     nerve: '上殿神経（L4–S1）',
     action: '股関節の外転（前部：内旋・屈曲／後部：外旋・伸展）、片脚立位の骨盤水平保持',
     memo: '弱化でトレンデレンブルグ徴候・腰痛。歩行安定の鍵。大転子上方を触診。',
-    build: { type:'sheet', pts:['iliacAlaL','iliacCrestL','gtrochL'], bulge:[-2.0,0,-0.5] },
+    build: { kind:'fan', o:['asisL','iliacAlaL','iliacCrestL'], i:['gtrochL'], n:14, w:0.72, bulge:[-1.9,0,-0.4] },
   },
   {
     id: 'iliopsoas', name: '腸腰筋', latin: 'M. iliopsoas',
@@ -224,7 +224,7 @@ export const MUSCLES = [
     nerve: '大腰筋：腰神経叢（L1–L3）／腸骨筋：大腿神経（L2–L4）',
     action: '股関節の屈曲・外旋、腰椎前弯の保持',
     memo: '反り腰・腰痛の中核。短縮すると骨盤前傾。深層のため間接的アプローチが基本。',
-    build: { type:'spindle', pts:['l3','ltrochL'], r:1.8, bulge:[0,0,1.5] },
+    build: { kind:'fusiform', o:['l1','l3'], i:['ltrochL'], n:7, w:1.6, bulge:[-0.5,0,1.3] },
   },
   {
     id: 'quadratus', name: '腰方形筋', latin: 'M. quadratus lumborum',
@@ -234,7 +234,7 @@ export const MUSCLES = [
     nerve: '腰神経叢の枝（T12–L4）',
     action: '腰椎の側屈、第12肋骨の下制、骨盤の挙上',
     memo: '一側性腰痛の代表。デスクワークの側屈姿勢で過緊張。腸骨稜と第12肋骨の間を評価。',
-    build: { type:'sheet', pts:['iliacCrestL','l3','t12'], bulge:[0,0,-0.8] },
+    build: { kind:'fan', o:['iliacCrestL'], i:['t12','l3'], n:6, w:0.5, bulge:[0,0,-0.6] },
   },
   {
     id: 'quadriceps', name: '大腿四頭筋', latin: 'M. quadriceps femoris',
@@ -244,7 +244,7 @@ export const MUSCLES = [
     nerve: '大腿神経（L2–L4）',
     action: '膝関節の伸展（大腿直筋は股関節屈曲も）',
     memo: '膝痛・歩行で重要。大腿直筋は二関節筋で骨盤前傾と連動。',
-    build: { type:'spindle', pts:['aiisL','tibTubL'], r:3.0, bulge:[0,0,2.2] },
+    build: { kind:'fusiform', o:['aiisL'], i:['tibTubL'], n:12, w:2.9, flat:[1.1,1.0], bulge:[0,0,2.2] },
   },
   {
     id: 'hamstrings', name: 'ハムストリングス', latin: 'Mm. ischiocrurales',
@@ -254,7 +254,7 @@ export const MUSCLES = [
     nerve: '坐骨神経（脛骨神経部 L5–S2／二頭筋短頭は総腓骨神経部）',
     action: '膝関節の屈曲、股関節の伸展',
     memo: '短縮で骨盤後傾・腰痛、SLR制限。坐骨神経痛との鑑別に留意。',
-    build: { type:'spindle', pts:['ischiumL','fibHeadL'], r:2.6, bulge:[0,0,-2.0] },
+    build: { kind:'fusiform', o:['ischiumL'], i:['fibHeadL','tibMedL'], n:10, w:2.4, bulge:[0,0,-1.9] },
   },
   {
     id: 'gastroc', name: '腓腹筋', latin: 'M. gastrocnemius',
@@ -264,6 +264,6 @@ export const MUSCLES = [
     nerve: '脛骨神経（S1–S2）',
     action: '足関節の底屈、膝関節の屈曲',
     memo: '二関節筋。こむら返り・足のむくみで着目。アキレス腱との移行部を評価。',
-    build: { type:'spindle', pts:['medCondyleL',[-8.5,22,-2]], r:2.4, bulge:[0,0,-1.8] },
+    build: { kind:'fusiform', o:['medCondyleL','latCondyleL'], i:[[-8.5,22,-2.5]], n:9, w:2.2, bulge:[0,0,-1.7] },
   },
 ];

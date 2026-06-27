@@ -33,13 +33,15 @@ function init() {
   canvasWrap.appendChild(renderer.domElement);
 
   // 照明
-  scene.add(new THREE.HemisphereLight(0xcfe0ff, 0x202028, 0.9));
-  const key = new THREE.DirectionalLight(0xffffff, 1.1);
+  scene.add(new THREE.HemisphereLight(0xd6e3ff, 0x33282a, 1.05));
+  const key = new THREE.DirectionalLight(0xffffff, 1.15);
   key.position.set(60, 180, 160); scene.add(key);
-  const rim = new THREE.DirectionalLight(0x6688ff, 0.6);
-  rim.position.set(-120, 120, -120); scene.add(rim);
-  const fill = new THREE.DirectionalLight(0xffffff, 0.4);
-  fill.position.set(0, 60, 180); scene.add(fill);
+  const rim = new THREE.DirectionalLight(0x88a0ff, 0.7);
+  rim.position.set(-120, 120, -150); scene.add(rim);
+  const fillFront = new THREE.DirectionalLight(0xfff2ee, 0.85);
+  fillFront.position.set(0, 70, 200); scene.add(fillFront);
+  const fillBack = new THREE.DirectionalLight(0xfff2ee, 0.7);
+  fillBack.position.set(0, 70, -200); scene.add(fillBack);
 
   // 床（うっすら）
   const grid = new THREE.GridHelper(400, 20, 0x223047, 0x16202e);
@@ -118,15 +120,15 @@ function updateHighlights() {
     const mat = m.material;
     if (!selected) {
       mat.emissive.setHex(0x000000);
-      mat.opacity = 0.96;
-      mat.color.setHex(m.userData.baseColor);
+      mat.opacity = 1.0;
+      mat.color.setHex(0xffffff);           // 頂点カラー（繊維の陰影）をそのまま表示
     } else if (isSel) {
-      mat.emissive.setHex(0x4a2a00);
-      mat.color.setHex(HIGHLIGHT);
+      mat.emissive.setHex(0x5a3300);
+      mat.color.setHex(HIGHLIGHT);           // 頂点カラーに乗算→暖色ハイライト
       mat.opacity = 1.0;
     } else {
       mat.emissive.setHex(0x000000);
-      mat.color.setHex(m.userData.baseColor);
+      mat.color.setHex(0xffffff);
       mat.opacity = DIM_OPACITY;
     }
   });
